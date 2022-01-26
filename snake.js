@@ -36,9 +36,6 @@ function Snake(){
     
     this.x = this.x + this.xspeed * scl;
     this.y = this.y + this.yspeed * scl;
-    
-    this.x = constrain(this.x,0,width-scl);
-    this.y = constrain(this.y,0,height-scl);
   }
   this.show = function() {
     fill(255);
@@ -46,6 +43,20 @@ function Snake(){
       rect(this.tail[i].x, this.tail[i].y , scl, scl);
     }
     rect(this.x, this.y , scl, scl);
+  }
+  this.edge = function() {
+    if(this.x>width-scl){
+      this.x=0;
+    }
+    if(this.x<0){
+      this.x=width - (width % scl);
+    }
+    if(this.y>height-scl){
+      this.y=0;
+    }
+    if(this.y<0){
+      this.y=height - (height % scl);
+    }  
   }
   this.dir = function(x,y){
     this.xspeed = x;

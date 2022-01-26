@@ -2,11 +2,12 @@ var s;
 var scl = 20;
 
 var food;
+var lat=false;
 
 function setup() {
   createCanvas(400, 400);
   s = new Snake();
-  frameRate(10);
+  frameRate(15);
   pickLocation();
 }
 
@@ -22,6 +23,7 @@ function pickLocation() {
 function draw() {
   background(51);
   s.update();
+  s.edge();
   s.death();
   s.show();
   if(s.eat(food)){

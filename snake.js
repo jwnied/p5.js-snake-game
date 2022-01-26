@@ -38,7 +38,7 @@ function Snake(){
     this.y = this.y + this.yspeed * scl;
   }
   this.show = function() {
-    fill(0,255,0);
+    fill(100,255,0);
     for(var i=0; i<this.total;i++){
       rect(this.tail[i].x, this.tail[i].y , scl, scl);
     }

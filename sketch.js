@@ -2,6 +2,7 @@ var s;
 var scl = 20;
 
 var food;
+var foodcolor;
 var lat=false;
 
 function setup() {
@@ -34,13 +35,17 @@ function draw() {
   rect(food.x,food.y, scl, scl);
 }
 function keyPressed(){
-  if(keyCode === UP_ARROW) {
+  if(keyCode === UP_ARROW && lat) {
     s.dir(0, -1);
-  }else if(keyCode === DOWN_ARROW){
+    lat = false;
+  }else if(keyCode === DOWN_ARROW && lat){
     s.dir(0,1);
-  }else if(keyCode === RIGHT_ARROW){
+    lat = false;
+  }else if(keyCode === RIGHT_ARROW && !lat){
     s.dir(1,0);
-  }else if(keyCode === LEFT_ARROW){
-    s.dir(-1,0);
+    lat = true;
+  }else if(keyCode === LEFT_ARROW && !lat){
+    s.dir(-1,0)
+    lat = true;
   }
 }
